@@ -2,10 +2,10 @@
   "name": "movie",
   "version": "1.0.0",
   "description": "",
-  "main": "js/controller.js",
+  "source": "index.html",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "author": "rocnail23",
   "license": "ISC",
