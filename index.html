@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="scss/main.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script type="module" defer src="js/controller.js"></script>
+    <title>Movies</title>
+  </head>
+  <body class="container">
+    <header class="header">
+      <input id="switch" class="nav__switch" type="checkbox" />
+      <label for="switch" class="nav__switch-btn"></label>
+      <div class="logo">
+        <h3><span class="logo__circle">F</span>ilm</h3>
+      </div>
+      <nav class="nav">
+        <ul class="nav__items">
+          <li id="28" class="nav__item">
+            <a id="action" class="nav__btn" href="#action">action</a>
+          </li>
+          <li id="12" class="nav__item">
+            <a id="adventure" class="nav__btn" href="#adventure">Adventure</a>
+          </li>
+          <li id="16" class="nav__item">
+            <a id="animation" class="nav__btn" href="#animation">animation</a>
+          </li>
+          <li id="35" class="nav__item">
+            <a id="comedy" class="nav__btn" href="#comedy">comedy</a>
+          </li>
+          <li id="80" class="nav__item">
+            <a id="crime" class="nav__btn" href="#crime">crime</a>
+          </li>
+          <li id="27" class="nav__item">
+            <a id="horror" class="nav__btn" href="#horror">horror</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="movie padding-l"></section>
+    <section class="side"></section>
+    <section class="movies padding-l">
+      <form class="filter mb-hg">
+        <input placeholder="search" class="filter__input" type="text" />
+        <div class="filter__btn">
+          <ion-icon class="filter__icon" name="search"></ion-icon>
+        </div>
+      </form>
+      <div class="container-movies"></div>
+    </section>
+
+    <footer class="footer"></footer>
+    <div class="container-video">
+      <button class="container-video__btn">close video</button>
+      <iframe
+        class="trailer"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/26t7IppxXfU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
+</html>

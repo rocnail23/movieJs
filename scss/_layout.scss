@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: [start-main] calc(75vw - 2rem) [end-main] 25vw [end-page];
+    grid-template-rows: min-content minmax(80vh, 60rem) min-content;
+    gap: 2rem;
+
+    @media (max-width:$tablet-land){
+        grid-template-columns: [start-main] 100vw [end-main];
+        grid-template-rows: min-content minmax(min-content,60vh);
+    }
+}

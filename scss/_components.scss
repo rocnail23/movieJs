@@ -1,0 +1,346 @@
+.logo {
+  color: $color-primary;
+  font-family: sans-serif;
+  display: flex;
+  font-size: 2rem;
+  z-index: 1;
+  align-items: center;
+
+  & span {
+    display: inline-block;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    margin-right: 0.1rem;
+    color: currentColor;
+  }
+}
+
+.nav {
+  color: white;
+  z-index: 1;
+  display: flex;
+  transition: transform 0.4s ease;
+
+  &__switch-btn {
+    width: 2rem;
+    border-top: 3px solid $color-primary;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+    z-index: 4000;
+    transition: all 0.3s ease;
+    @media (max-width: $tablet) {
+      visibility: visible;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      width: 100%;
+      border-top: 3px solid $color-primary;
+      display: inline-block;
+      position: absolute;
+    }
+
+    &::after {
+      top: -1rem;
+    }
+
+    &::before {
+      top: 0.3rem;
+    }
+  }
+
+  &__switch {
+    visibility: hidden;
+    position: fixed;
+
+    &:checked ~ .nav {
+      transform: translate(0%);
+    }
+
+    &:checked ~ &-btn {
+      transform: rotateZ(60deg);
+    }
+
+    &:checked ~ &-btn::after {
+      transform: rotateZ(-110deg) translate(-30%, -50%);
+    }
+    &:checked ~ &-btn::before {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    position: fixed;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background-color: $color-dark;
+    width: 40vw;
+    transform: translate(-100%);
+  }
+
+  &__items {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1rem;
+    align-self: center;
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      margin: auto;
+      height: 80%;
+      justify-content: center;
+      gap: 4rem;
+      color: $color-primary;
+    }
+  }
+
+  &__item {
+    transform: translateY(25%);
+  }
+
+  &__btn {
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.4rem;
+    touch-action: none;
+
+    &:target {
+      color: $color-primary;
+    }
+
+    @media (max-width: $tablet) {
+      font-weight: 700;
+    }
+
+    &:link,
+    &:visited {
+      color: currentColor;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+    }
+
+    &:target {
+      color: $color-primary;
+    }
+  }
+}
+
+.info {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content;
+  align-content: center;
+  padding: 1rem;
+  min-height: 100%;
+
+  &__title {
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 6rem;
+  }
+
+  &__items {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__overview {
+    width: 50%;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    @media (max-width: $tablet-land) {
+      width: 100%;
+      color: $color-white;
+    }
+  }
+
+  &__icons {
+    color: $color-white;
+    font-size: 2rem;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-self: start;
+    color: $color-white;
+    background-color: $color-primary;
+    border: none;
+    padding: 1rem 6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-top: 4rem;
+    margin-bottom: 0rem;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.03;
+    }
+    @media (max-width: $tablet-land) {
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: $tablet-land) {
+    padding: 4rem;
+  }
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > button {
+    background-color: $color-dark;
+  }
+
+  &__input {
+    width: 80%;
+
+    background-color: $color-dark;
+    height: 4rem;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    color: inherit;
+    font-size: 1.6rem;
+  }
+
+  &__btn {
+    border: none;
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: $color-dark-grey-light;
+    margin-left: -4rem;
+  }
+}
+
+.container-movies {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  width: 80%;
+  margin: auto;
+
+  @media (max-width: $tablet-land) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.card-movie {
+  cursor: pointer;
+  transition: transform 0.2s ease, scale 0.3s ease;
+  &:hover {
+    transform: translateY(-1rem);
+    scale: 1.01;
+  }
+
+  & > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.recomendations {
+  display: grid;
+  margin-bottom: 4rem;
+
+  &__movies {
+    @media (max-width: $tablet) {
+      overflow-x: scroll;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
+    gap: 0.5rem;
+    padding-right: 2rem;
+
+    @media (max-width: $tablet-land) {
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(3, 20rem);
+      justify-content: start;
+    }
+  }
+}
+
+.container-video {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 20000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+    background-color: rgb($color-dark, 0.5);
+  }
+
+  &__btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 1rem 2rem;
+    border: none;
+    transition: all 0.3s ease;
+    &:hover {
+      scale: 1.02;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.side{
+   
+   
+    display: grid;
+    padding: 2rem;
+    grid-template-rows: repeat(3, 35%);
+    
+
+    @media (max-width:$tablet-land){
+       grid-template-columns: repeat(auto-fit,calc(30rem + 6rem));
+       justify-content: center;
+    }
+
+    @media (max-width:$tablet){
+        grid-template-columns:  1fr ;
+     }
+   
+}

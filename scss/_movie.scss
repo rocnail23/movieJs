@@ -1,0 +1,10 @@
+.movie{
+    grid-column: start-main/end-main;
+    padding-top: 2rem;
+
+
+    @media (max-width:$tablet-land){
+        grid-row:2/3
+    }
+    
+}

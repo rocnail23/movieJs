@@ -1,0 +1,18 @@
+.header {
+  background-color: $color-dark;
+  grid-column: 1/-1;
+  grid-row: 1/1;
+  display: flex;
+  gap: 8rem;
+  padding: 1rem 0rem 1rem 5rem;
+  position: relative;
+  
+  @media (max-width:$tablet-land){
+    padding-left: 2rem;
+   }
+
+  @media (max-width:$tablet-land){
+  justify-content: center;
+  }
+
+}
