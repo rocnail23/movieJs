@@ -93,6 +93,7 @@ export async function searchMovie(value, page = state.page) {
 
 async function getVideo(id) {
   const res = await fetchUrl(`https://api.themoviedb.org/3/movie/${id}/videos`);
-  state.movie = { ...state.movie, key: res.results[0].key };
+  const key = res.results.find((res) => res.type == "Trailer");
+  state.movie = { ...state.movie, key };
   console.log(state.movie.key);
 }
